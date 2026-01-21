@@ -31,3 +31,14 @@ experienceCards.forEach(card => {
     card.classList.toggle("active");
   });
 });
+// Project accordion (expand / collapse cards)
+const projectCards = document.querySelectorAll(".project-card");
+
+projectCards.forEach(card => {
+  const toggle = card.querySelector(".proj-toggle");
+
+  toggle.addEventListener("click", () => {
+    card.classList.toggle("active");
+  });
+});
+
