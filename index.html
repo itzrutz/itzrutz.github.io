@@ -97,87 +97,43 @@
   margin-bottom: 30px;
 }
 
-/* ===== DESKTOP (FLIP ENABLED) ===== */
-@media (min-width: 769px) {
-  .flip-card {
-    perspective: 1000px;
-    height: 260px;
-  }
+/* ===== EXPANDABLE CARD (DESKTOP + MOBILE) ===== */
 
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 260px;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-
-  .flip-card input {
-    display: none;
-  }
-
-  .flip-card input:checked + .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 260px;
-    backface-visibility: hidden;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    padding: 25px;
-  }
-.flip-card-back p,
-.flip-card-back li {
-  line-height: 1.6;
+.flip-card {
+  width: 100%;
+  margin-bottom: 24px;
 }
 
-  .flip-card-front {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.flip-card input {
+  display: none;
+}
+
+.flip-card-front {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 25px;
+  cursor: pointer;
+}
+
+.flip-card-front:hover {
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
 
 .flip-card-back {
-  transform: rotateY(180deg);
-  font-size: 14px;
+  display: none;
+  background: #ffffff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  padding: 25px;
+  margin-top: -8px;
 }
 
+.flip-card input:checked ~ .flip-card-back {
+  display: block;
 }
 
-/* ===== MOBILE (NO FLIP, EXPAND ONLY) ===== */
-@media (max-width: 768px) {
-  .flip-card input {
-    display: none;
-  }
 
-  .flip-card-inner {
-    position: relative;
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    position: relative;
-    width: 100%;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    padding: 25px;
-    margin-bottom: 12px;
-  }
-
-  .flip-card-back {
-    display: none;
-  }
-
-  .flip-card input:checked + .flip-card-inner .flip-card-back {
-    display: block;
-  }
-}
 
   </style>
 </head>
@@ -300,52 +256,39 @@
   <h2 data-aos="fade-up">Projects</h2>
 
   <!-- PROJECT 1 -->
-  <div class="flip-card" data-aos="fade-up">
-    <label style="display:block;">
+  <div class="flip-card">
 
-      <input type="checkbox">
+  <label class="flip-card-front">
+    <input type="checkbox">
+    <h3>Spatial Analysis of Urban Growth</h3>
+    <p><strong>Master’s Thesis | IIT Kharagpur</strong></p>
+    <p>Urban Analytics & GIS</p>
+    <p style="font-size:13px; color:#555; margin-top:10px;">
+      Click to expand ↓
+    </p>
+  </label>
 
-      <div class="flip-card-inner">
+  <div class="flip-card-back">
+    <h4>Problem Statement</h4>
+    <p>
+      Studied the impact of real estate markers on urban sprawl and
+      land-use change across metropolitan regions.
+    </p>
 
-        <!-- FRONT -->
-        <div class="flip-card-front">
-          <h3>Spatial Analysis of Urban Growth</h3>
-          <p><strong>Master’s Thesis | IIT Kharagpur</strong></p>
-          <p>Urban Analytics & GIS</p>
-          <p style="margin-top: 10px; font-size: 13px; color: #555;">
-            Click to know more →
-          </p>
-        </div>
+    <h4>What I Did</h4>
+    <ul>
+      <li>GIS-based spatial analysis using satellite imagery</li>
+      <li>Land-use transition mapping</li>
+      <li>Growth trend interpretation</li>
+    </ul>
 
-        <!-- BACK -->
-        <div class="flip-card-back">
-          <h4>Problem Statement</h4>
-          <p>
-            Studied the impact of real estate markers on urban sprawl and
-            land-use change across metropolitan regions.
-          </p>
-
-          <h4>What I Did</h4>
-          <ul>
-            <li>Performed GIS-based spatial analysis using satellite imagery</li>
-            <li>Mapped land-use transitions across time periods</li>
-            <li>Analyzed real estate-driven growth patterns</li>
-          </ul>
-
-          <h4>Tools & Methods</h4>
-          <p>
-            QGIS, ArcGIS Pro, Google Earth Engine, Spatial Statistics
-          </p>
-
-          <p>
-            <strong>Outcome:</strong> Identified urban expansion trends and
-            planning implications for sustainable development.
-          </p>
-        </div>
-
-      </div>
-    </label>
+    <p>
+      <strong>Tools:</strong> QGIS, ArcGIS Pro, Google Earth Engine
+    </p>
   </div>
+
+</div>
+
 
   <!-- PROJECT 2 -->
   <div class="flip-card" data-aos="fade-up">
