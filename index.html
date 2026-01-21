@@ -85,54 +85,90 @@
   margin-left: auto;
   margin-right: auto;
 }
-    .flip-card {
-  background-color: transparent;
+  /* ===== FLIP CARD BASE ===== */
+.flip-card {
   width: 100%;
-  height: 260px;
-  perspective: 1000px;
   margin-bottom: 30px;
-  cursor: pointer;
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+/* ===== DESKTOP (FLIP ENABLED) ===== */
+@media (min-width: 769px) {
+  .flip-card {
+    perspective: 1000px;
+    height: 260px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card input {
+    display: none;
+  }
+
+  .flip-card input:checked + .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 260px;
+    backface-visibility: hidden;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 25px;
+  }
+
+  .flip-card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+    overflow-y: auto;
+    font-size: 14px;
+  }
 }
 
-.flip-card input {
-  display: none;
+/* ===== MOBILE (NO FLIP, EXPAND ONLY) ===== */
+@media (max-width: 768px) {
+  .flip-card input {
+    display: none;
+  }
+
+  .flip-card-inner {
+    position: relative;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: relative;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin-bottom: 12px;
+  }
+
+  .flip-card-back {
+    display: none;
+  }
+
+  .flip-card input:checked + .flip-card-inner .flip-card-back {
+    display: block;
+  }
 }
 
-.flip-card input:checked + .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  padding: 25px;
-}
-
-.flip-card-front {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
-  font-size: 14px;
-}
   </style>
 </head>
 
