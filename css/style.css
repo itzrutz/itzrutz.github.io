@@ -274,4 +274,16 @@ footer {
   line-height: 1.6;
   color: #475569;
 }
+/* Left column inside project header */
+.proj-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-left .proj-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 4px;
+}
 
