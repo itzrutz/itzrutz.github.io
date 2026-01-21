@@ -80,12 +80,13 @@ section {
 
 /* Sections */
 section {
-  min-height: 100vh;
   padding: 80px 20px;
   max-width: 900px;
   margin: auto;
 }
-
+section:not(:last-child) {
+  margin-bottom: 40px;
+}
 /* Footer */
 footer {
   text-align: center;
