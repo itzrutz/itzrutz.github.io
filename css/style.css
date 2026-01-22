@@ -571,17 +571,27 @@ footer {
   margin-top: 14px;
 }
 
-/* Arrow indicator */
-.skills-bold-card::after {
-  content: "▾";
-  position: absolute;
-  top: 26px;
-  right: 26px;
-  font-size: 14px;
-  color: #64748b;
-  transition: transform 0.3s ease;
+/* Make entire card clickable */
+.skills-bold-card {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.skills-bold-card.active::after {
-  transform: rotate(180deg);
+.skills-bold-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
 }
+
+/* Collapsible content */
+.skills-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, margin-top 0.35s ease;
+}
+
+/* Expanded */
+.skills-bold-card.active .skills-content {
+  max-height: 300px;
+  margin-top: 14px;
+}
+
